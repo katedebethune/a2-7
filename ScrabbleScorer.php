@@ -11,9 +11,12 @@ class ScrabbleScorer{
          "q" => 10, "r" => 1, "s" => 1, "t" => 1,
          "u" => 1, "v" => 4, "w" => 4, "x" => 8,
          "y" => 4, "z" => 10];
+    private $multiplier;
+    private $isBingo = false;
+    private $isFirstWord = false;
 
     public function getTileScores() {
-        return $tileScores;
+        return $this->tileScores;
     }
 
 
