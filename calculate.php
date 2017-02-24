@@ -6,22 +6,24 @@ require("Form.php");
 use DWA\Tools;
 use DWA\Form;
 
-$scorer = new ScrabbleScorer();
+
+
+
 $form = new DWA\Form($_GET);
 
-$testVar = 55;
-
-$isFirstWord = $form->isChosen('firstWord');
-$isBingo = $form->isChosen('bingo');
-
 $word = $form->get('word', $default = '');
-$word = strtolower($word);
+$multiplier = $form->get('bonus');
+$isBingo = $form->isChosen('bingo');
+$isFirstWord = $form->isChosen('firstWord');
 
-$letters = str_split($word);
+$word = str_replace(" ", "", $word);
 
-$total = 0;
+
+$scorer = new ScrabbleScorer($word, $multiplier, $isBingo, $isFirstWord);
 
 $errors = null;
+
+$total = 0;
 
 if($form->isSubmitted()) {
 	$errors = $form->validate(
@@ -31,18 +33,6 @@ if($form->isSubmitted()) {
 	);
 	
 	if(!$errors){
-		foreach($letters as $letter) {
-			$total += $scorer->getTileScores()[$letter];
-		}
-
-		$multiplier = $form->get('bonus');
-
-		$total *= $multiplier;
-
-		if ($isBingo) {
-			if (($isFirstWord && strlen($word) >= 7) || (!$isFirstWord && strlen($word) >= 8)){
-				$total += 50;
-			}
-		}
+		$total = $scorer->calculateTotal();
 	}
 }

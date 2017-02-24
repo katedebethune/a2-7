@@ -1,8 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color:#ffc86d;
+    background-color:#eeeeee;
 }
-
 
 h1 {
     text-align: center;
@@ -39,7 +38,7 @@ td {
     width: 70%;
     height: 100%;
     background-color: #ffffff;
-    border: #bb0000 5px solid;
+    border: #777777 5px solid;
     border-radius: 25px;
 }
 

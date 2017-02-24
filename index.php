@@ -6,7 +6,6 @@
         <title>A2 Scrabble Scorer</title>
         <meta charset="utf-8"/>
         <link type="text/css" rel="stylesheet" href="css/scrabble.css"/>
-
     </head>
     <body>   
 		<div class="content">
