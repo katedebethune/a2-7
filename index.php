@@ -22,7 +22,7 @@
 					</tr>
 					<tr>
 						<td>
-						<label for="bonus">Bonus multiplier</label>
+						<label for="none">Bonus multiplier</label>
 						</td>
 						<td>
 						<input type="radio" id="none" name="bonus" value="1" 
@@ -45,7 +45,7 @@
 					<tr>
 						<td>
 						<label for="firstWord">Is this first word of the game?</label>
-						<t/d>
+						</td>
 						<td>
 						<input type="checkbox" id="firstWord" name="firstWord" 
 							<?php if($form->isChosen("firstWord")) echo 'checked'?> /><br/>
